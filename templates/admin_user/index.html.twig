@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AdminUser index{% endblock %}
+
+{% block body %}
+
+    <br/>
+
+    <h1>Administrateurs</h1>
+
+    <hr>
+
+    <table class="table text-center table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>E-Mail</th>
+                <th>Pseudonyme</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_user in admin_users %}
+            <tr>
+                <td>{{ admin_user.id }}</td>
+                <td>{{ admin_user.email }}</td>
+                <td>{{ admin_user.username }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('admin_user_show', {'id': admin_user.id}) }}"><i class="far fa-edit"></i></a>
+                    <a class="btn btn-danger" href="{{ path('admin_user_edit', {'id': admin_user.id}) }}"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_register') }}">Ajouter un Administrateur</a>
+{% endblock %}

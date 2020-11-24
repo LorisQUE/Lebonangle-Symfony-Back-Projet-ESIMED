@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <br/>
+
+    <h1>Créer un administrateur</h1>
+
+    <hr>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email, { label: 'E-Mail' }) }}
+        {{ form_row(registrationForm.username, { label: 'Pseudonyme'}) }}
+        {{ form_row(registrationForm.plainPassword, { label: 'Mot de Passe'}) }}
+
+        <button type="submit" class="btn btn-success">Valider</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
