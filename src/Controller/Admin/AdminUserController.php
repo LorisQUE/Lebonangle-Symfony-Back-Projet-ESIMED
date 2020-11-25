@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\AdminUser;
 use App\Form\AdminUserType;
+use App\Form\RegistrationFormType;
 use App\Repository\AdminUserRepository;
 use Doctrine\DBAL\Types\StringType;
 use phpDocumentor\Reflection\Types\String_;
@@ -11,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/admin/user")
@@ -67,5 +69,27 @@ class AdminUserController extends AbstractController
             }
         }
         return $this->redirectToRoute('admin_user_index');
+    }
+
+    /**
+     * @Route("/new", name="admin_user_new")
+     */
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    {
+        $user = new AdminUser();
+        $form = $this->createForm(AdminUserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success', 'L\'administrateur a été ajouté avec succès.');
+            return $this->redirectToRoute('admin_user_index');
+        }
+
+        return $this->render('admin_user/new.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }
