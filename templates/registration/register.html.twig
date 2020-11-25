@@ -19,5 +19,6 @@
         {{ form_row(registrationForm.plainPassword, { label: 'Mot de Passe'}) }}
 
         <button type="submit" class="btn btn-success">Valider</button>
+        <a class="btn btn-secondary" href="{{ path('admin_user_index') }}">Retour</a>
     {{ form_end(registrationForm) }}
 {% endblock %}

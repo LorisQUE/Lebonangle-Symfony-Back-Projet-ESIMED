@@ -26,12 +26,12 @@
                 <td>{{ admin_user.email }}</td>
                 <td>{{ admin_user.username }}</td>
                 <td style="display: flex; justify-content: center;">
-                    <a class="btn btn-primary" style="margin-right: 5px;" href="{{ path('admin_user_edit', {'id': admin_user.id}) }}"><i class="far fa-edit"></i></a>
+                    <a class="btn btn-primary" href="{{ path('admin_user_edit', {'id': admin_user.id}) }}"><i class="far fa-edit"></i></a>
                     {% if current_user_id is not same as(admin_user.getId()) %}
                         <form method="post" action="{{ path('admin_user_delete', {'id': admin_user.id}) }}" onsubmit="return confirm('Êtes-vous certain de vouloir supprimer cet administrateur ?');">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ admin_user.id) }}">
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                            <button class="btn btn-danger" style="margin-left: 5px;" ><i class="far fa-trash-alt"></i></button>
                         </form>
                     {% endif %}
                 </td>
