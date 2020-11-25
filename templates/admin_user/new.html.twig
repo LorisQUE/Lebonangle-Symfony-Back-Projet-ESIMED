@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer Admin{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <br/>
+
+    <h1>Créer un administrateur</h1>
+
+    <hr>
+
+    {{ include('admin_user/_form.html.twig') }}
+
+{% endblock %}

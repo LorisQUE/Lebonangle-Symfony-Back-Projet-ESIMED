@@ -1,26 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Catégorie - Détails{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+    <br/>
+    <h1>Détails de la catégorie {{ category.name }}</h1>
+    <hr>
 
-    <table class="table">
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+    <table class="table text-center table table-hover table-bordered" style="width: 100%">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>E-Mail</th>
+            <th>Prix</th>
+            <th>Publié le</th>
+            <th>Nombre d'images</th>
+            <th>Contenu</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
         <tbody>
+        {% for advert in adverts %}
             <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
+                <td>{{ advert.id }}</td>
+                <td>{{ advert.title }}</td>
+                <td>{{ advert.author }}</td>
+                <td>{{ advert.email }}</td>
+                <td>{{ advert.price }}€</td>
+                <td>{{ advert.publishedAt |date("d/m/Y H:i:s") }}</td>
+                <td>{{ advert.id }}</td>
+                <td>{{ advert.content }}</td>
+                <td style="display: flex; justify-content: space-evenly;">
+                    <a class="btn btn-primary" href="#"><i class="fas fa-eye"></i></a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-primary" href="#"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                    {% endif %}
+                </td>
             </tr>
+        {% else %}
             <tr>
-                <th>Name</th>
-                <td>{{ category.name }}</td>
+                <td colspan="9">Aucune annonce dans cette catégorie</td>
             </tr>
+        {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('category_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('category_index') }}">Retour</a>
 
-    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
 {% endblock %}
