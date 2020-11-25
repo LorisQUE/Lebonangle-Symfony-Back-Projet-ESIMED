@@ -41,6 +41,7 @@ class AdminUserController extends AbstractController
             // le listener ne sera pas appelé, car le champs n'est pas mappé)
             $form->getData()->setPassword('');
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'administrateur a bien été modifié.');
             return $this->redirectToRoute('admin_user_index');
         }
 
@@ -60,8 +61,11 @@ class AdminUserController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->remove($adminUser);
                 $entityManager->flush();
-                return $this->redirectToRoute('admin_user_index');
+                $this->addFlash('success', 'L\'administrateur a bien été supprimé.');
+            } else {
+                $this->addFlash('danger', 'Vous ne pouvez pas vous supprimez.');
             }
         }
+        return $this->redirectToRoute('admin_user_index');
     }
 }

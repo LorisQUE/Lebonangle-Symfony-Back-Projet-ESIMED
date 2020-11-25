@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
+use App\Entity\Advert;
 use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Repository\AdvertRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,6 +40,7 @@ class CategoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($category);
             $entityManager->flush();
+            $this->addFlash('success', 'La catégorie a été ajouté avec succès.');
 
             return $this->redirectToRoute('category_index');
         }
@@ -68,6 +71,7 @@ class CategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La catégorie a bien été modifiée.');
 
             return $this->redirectToRoute('category_index');
         }
@@ -81,12 +85,18 @@ class CategoryController extends AbstractController
     /**
      * @Route("/{id}", name="category_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Category $category): Response
+    public function delete(Request $request, Category $category, AdvertRepository $advertRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($category);
-            $entityManager->flush();
+            $nbAdvert = count($advertRepository->findBy(['category'=>$category->getId()]));
+            if($nbAdvert == 0) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($category);
+                $entityManager->flush();
+                $this->addFlash('success', 'La catégorie a bien été supprimée.');
+            } else {
+                $this->addFlash('danger', 'Vous ne pouvez pas supprimer une catégorie ayant une ou plusieurs annonces.');
+            }
         }
 
         return $this->redirectToRoute('category_index');

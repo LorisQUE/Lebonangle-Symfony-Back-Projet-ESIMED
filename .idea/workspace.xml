@@ -21,19 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9e8fa817-45b1-4092-bf2e-242d5d3a7099" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/AdminUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/AdminUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/AdminUserListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/AdminUserListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AdminUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AdminUserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin_user/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin_user/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin_user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_user/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin_user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/advert/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/advert/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,8 +168,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\lebonangle\src\Controller" />
       <recent name="C:\wamp64\www\lebonangle\src\Controller\Admin" />
+      <recent name="C:\wamp64\www\lebonangle\src\Controller" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -190,7 +183,7 @@
       <workItem from="1605978192686" duration="1913000" />
       <workItem from="1606124501760" duration="5361000" />
       <workItem from="1606203988231" duration="24959000" />
-      <workItem from="1606289966494" duration="4456000" />
+      <workItem from="1606289966494" duration="10727000" />
     </task>
     <servers />
   </component>
@@ -214,10 +207,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="122" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606127552686" />
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606240131853">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606298712015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606240131853" />
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606298712015" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606212950337">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -230,9 +223,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606226468957" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1606234475754">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1606299092751">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606234475754" />
+    <state x="616" y="240" key="run.anything.popup/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606299092751" />
   </component>
 </project>
