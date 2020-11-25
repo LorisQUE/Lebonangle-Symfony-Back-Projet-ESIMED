@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\AdminUser;
 use App\Form\AdminUserType;
 use App\Repository\AdminUserRepository;
+use Doctrine\DBAL\Types\StringType;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,16 +24,7 @@ class AdminUserController extends AbstractController
     {
         return $this->render('admin_user/index.html.twig', [
             'admin_users' => $adminUserRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="admin_user_show", methods={"GET"})
-     */
-    public function show(AdminUser $adminUser): Response
-    {
-        return $this->render('admin_user/show.html.twig', [
-            'admin_user' => $adminUser,
+            'current_user_id' => $this->getUser()->getId(),
         ]);
     }
 
@@ -44,8 +37,10 @@ class AdminUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //Utiliser pour trigger le listener preUpdate (si on modifie que le champs plainPassword,
+            // le listener ne sera pas appelé, car le champs n'est pas mappé)
+            $form->getData()->setPassword('');
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('admin_user_index');
         }
 
@@ -61,11 +56,12 @@ class AdminUserController extends AbstractController
     public function delete(Request $request, AdminUser $adminUser): Response
     {
         if ($this->isCsrfTokenValid('delete'.$adminUser->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($adminUser);
-            $entityManager->flush();
+            if($this->getUser()->getId() != $adminUser->getId()){
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($adminUser);
+                $entityManager->flush();
+                return $this->redirectToRoute('admin_user_index');
+            }
         }
-
-        return $this->redirectToRoute('admin_user_index');
     }
 }

@@ -3,11 +3,11 @@
 Le site LEBOANGLE permet de déposer et de consulter des annonces sur un environement mobile. Il est construit avec un admin Symfony et une API exposée via Api
 Platform.
 
-#Installation
+# Installation
 
 Le projet doit être créé à l'aide du binaire symfony en utilisant la version full du framework
 
-## Entités
+# Entités
 
 Le projet contient les entités suivantes :
 

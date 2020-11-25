@@ -16,26 +16,5 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HomeController extends AbstractController
 {
-    /**
-     * @Route("/new/user", name="admin_user_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $adminUser = new AdminUser();
-        $form = $this->createForm(AdminUserType::class, $adminUser);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($adminUser);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('admin_user_index');
-        }
-
-        return $this->render('admin_user/new.html.twig', [
-            'admin_user' => $adminUser,
-            'form' => $form->createView(),
-        ]);
-    }
 }
