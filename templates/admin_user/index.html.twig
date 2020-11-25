@@ -9,7 +9,12 @@
     <h1>Administrateurs</h1>
 
     <hr>
-
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
     <table class="table text-center table table-hover table-bordered">
         <thead>
             <tr>

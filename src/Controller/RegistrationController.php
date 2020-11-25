@@ -25,6 +25,7 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'administrateur a été ajouté avec succès.');
             return $this->redirectToRoute('admin_user_index');
         }
 
