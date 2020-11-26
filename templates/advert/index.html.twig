@@ -19,47 +19,37 @@
     {% for message in app.flashes('success') %}
         <div class="alert alert-success" role="alert">{{ message }}</div>
     {% endfor %}
-    <table class="table text-center table table-hover table-bordered" style="width: 100%">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Catégorie</th>
-            <th>Titre</th>
-            <th>Auteur</th>
-            <th>E-Mail</th>
-            <th>Prix</th>
-            <th>Publié le</th>
-            <th>Nombre d'images</th>
-            <th>Contenu</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
         {% for advert in adverts %}
-            <tr>
-                <td>{{ advert.id }}</td>
-                <td>{{ advert.category.name }}</td>
-                <td>{{ advert.title }}</td>
-                <td>{{ advert.author }}</td>
-                <td>{{ advert.email }}</td>
-                <td>{{ advert.price }}€</td>
-                <td>{{ advert.publishedAt |date("d/m/Y H:i:s") }}</td>
-                <td>{{ advert.id }}</td>
-                <td>{{ advert.content }}</td>
-                <td style="display: flex; justify-content: space-evenly;">
-                    <a class="btn btn-primary" href="#"><i class="fas fa-eye"></i></a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a class="btn btn-primary" href="#"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                    {% endif %}
-                </td>
-            </tr>
+            <div class="card" style="margin-bottom: 10px;">
+                <div class="card-header">
+                    #{{ advert.id }} - {{ advert.title }}
+                </div>
+                <div class="card-body" style="padding-bottom: 0;">
+                    <h5 class="card-title">{{ advert.category.name }}</h5>
+                    <p class="card-text">{{ advert.price }}€</p>
+                    <p class="card-text">Nombre d'image : placeholder</p>
+                    <p class="card-text">{{ advert.content }}</p>
+                    <div style="margin-bottom: 5px;">
+                        <a class="btn btn-primary" href="#"><i class="fas fa-eye"></i></a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if workflow_can(advert, 'publish') %}
+                                <a title="Publier" href="{{ path('advert_state', {'transition': 'publish', 'id': advert.id}) }}" class="btn btn-success"><i class="fas fa-upload"></i></a>
+                            {% endif %}
+                            {% if workflow_can(advert, 'reject') %}
+                                <a title="Rejeter" href="{{ path('advert_state', {'transition': 'reject', 'id': advert.id}) }}" class="btn btn-danger"><i class="fas fa-ban"></i></a>
+                            {% endif %}
+                            {% if workflow_can(advert, 'remove') %}
+                                <a title="Rejeter" href="{{ path('advert_state', {'transition': 'remove', 'id': advert.id}) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            {% endif %}
+                            <p class="small">État de l'annonce : {{ advert.state }}</p>
+                        {% endif %}
+                    </div>
+                    <p class="small">Publié {% if advert.publishedAt != null %}le {{ advert.publishedAt |date("d/m/Y H:i", "Europe/Paris") }}{% endif %} par {{ advert.author }} - <a href="mailto:{{ advert.email }}">{{ advert.email }}</a></p>
+                </div>
+            </div>
+
         {% else %}
-            <tr>
-                <td colspan="10">Pas de données</td>
-            </tr>
+            <span>Pas de catégorie disponible</span>
         {% endfor %}
-        </tbody>
-    </table>
-    {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-primary" href="#">Ajouter une leçon</a>{% endif %}
+    {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-primary" href="#">Ajouter une annonce</a>{% endif %}
 {% endblock %}

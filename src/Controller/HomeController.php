@@ -35,9 +35,14 @@ class HomeController extends AbstractController
      */
     public function show(Category $category, AdvertRepository $advertRepository): Response
     {
+        if($this->getUser() === null){
+            $adverts = $advertRepository->findBy(['category'=>$category->getId(), 'state'=>'published']);
+        } else{
+            $adverts = $advertRepository->findBy(['category'=>$category->getId()]);
+        }
         return $this->render('category/show.html.twig', [
             'category' => $category,
-            'adverts' => $advertRepository->findBy(['category'=>$category->getId()]),
+            'adverts' => $adverts,
         ]);
     }
 }

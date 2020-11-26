@@ -41,5 +41,5 @@
     </div>
     <br/>
 
-    <a class="btn btn-primary" href="{{ path('category_new') }}">Ajouter une catégorie</a>
+    {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-primary" href="{{ path('category_new') }}">Ajouter une catégorie</a>{% endif %}
 {% endblock %}

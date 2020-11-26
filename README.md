@@ -36,6 +36,8 @@ file (not mapped on database) File
 path string not null
 createdAt DateTime not null
 advert ManyToOne delete cascade
+contentUrl
+
 ```
 ```
 AdminUser
