@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Controller;
+
+namespace App\Controller\Admin;
+
 
 use App\Entity\Advert;
 use App\Repository\AdvertRepository;
@@ -11,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 
 /**
- * @Route("/")
+ * @Route("/admin/advert")
  */
 class AdvertController extends AbstractController
 {
@@ -21,9 +23,9 @@ class AdvertController extends AbstractController
     public function index(AdvertRepository $advertRepository): Response
     {
         if($this->getUser() === null){
-        $adverts = $advertRepository->findBy(['state'=>'published']);
+            $adverts = $advertRepository->findBy(['state'=>'published']);
         } else{
-        $adverts = $advertRepository->findAll();
+            $adverts = $advertRepository->findAll();
         }
         return $this->render('advert/index.html.twig', [
             'adverts' => $adverts,
@@ -31,7 +33,7 @@ class AdvertController extends AbstractController
     }
 
     /**
-     * @Route("/state/{id}/{transition}", name="advert_state", methods={"GET"})
+     * @Route("state/{id}/{transition}", name="advert_state", methods={"GET"})
      */
     public function changeState(Advert $advert, string $transition, WorkflowInterface $advertStateMachine, EntityManagerInterface $manager): Response
     {
