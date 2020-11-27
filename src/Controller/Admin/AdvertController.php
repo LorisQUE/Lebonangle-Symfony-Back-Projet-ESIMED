@@ -7,7 +7,9 @@ namespace App\Controller\Admin;
 use App\Entity\Advert;
 use App\Repository\AdvertRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
@@ -20,13 +22,16 @@ class AdvertController extends AbstractController
     /**
      * @Route("/", name="advert_index")
      */
-    public function index(AdvertRepository $advertRepository): Response
+    public function index(AdvertRepository $advertRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        if($this->getUser() === null){
-            $adverts = $advertRepository->findBy(['state'=>'published']);
-        } else{
-            $adverts = $advertRepository->findAll();
-        }
+        $donnees = $advertRepository->findAll();
+
+        $adverts = $paginator->paginate(
+            $donnees,
+            $request->query->getInt('page', 1),
+            30
+        );
+
         return $this->render('advert/index.html.twig', [
             'adverts' => $adverts,
         ]);
