@@ -17,6 +17,26 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CategoryController extends AbstractController
 {
+    /**
+     * @Route("/", name="category_index", methods={"GET"})
+     */
+    public function index(CategoryRepository $categoryRepository): Response
+    {
+        return $this->render('category/index.html.twig', [
+            'categories' => $categoryRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("show/{id}", name="category_show", methods={"GET"})
+     */
+    public function show(Category $category, AdvertRepository $advertRepository): Response
+    {
+        return $this->render('category/show.html.twig', [
+            'category' => $category,
+            'adverts' => $advertRepository->findBy(['category'=>$category->getId()]),
+        ]);
+    }
 
     /**
      * @Route("/new", name="category_new", methods={"GET","POST"})
@@ -43,7 +63,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="category_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="category_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Category $category): Response
     {
@@ -64,7 +84,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="category_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="category_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Category $category, AdvertRepository $advertRepository): Response
     {

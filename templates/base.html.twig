@@ -8,6 +8,7 @@
     </head>
     <body>
     {% block header %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" >Lebonangle</a>
 
@@ -19,18 +20,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('category_index') }}">Catégories</a>
                 </li>
-                {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path("admin_user_index") }}">Admin</a>
                 </li>
-                {% endif %}
             </ul>
         </div>
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}<a class="btn btn-primary" style="float: right;" href="{{ path('app_logout') }}">Déconnexion</a>
-        {% else %}
-            <a class="btn btn-primary" style="float: right;" href="{{ path('app_login') }}">Connexion</a>
-        {% endif %}
+        <a class="btn btn-primary" style="float: right;" href="{{ path('app_logout') }}">Déconnexion</a>
     </nav>
+        {% endif %}
     {% endblock %}
     <div class="container">
         <div class="row">

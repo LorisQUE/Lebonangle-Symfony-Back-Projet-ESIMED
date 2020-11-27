@@ -36,6 +36,8 @@ file (not mapped on database) File
 path string not null
 createdAt DateTime not null
 advert ManyToOne delete cascade
+contentUrl
+
 ```
 ```
 AdminUser
@@ -103,12 +105,12 @@ On peut créer / lister / accéder au détail des annonces.
 Les annonces peuvent être triées par date de publication ou par prix (ASC et DESC).
 Les annonces peuvent être filtrées par catégorie ainsi que par prix (entre [min] et [max])
 
-### PicturePicture
+### Picture
 
 On peut créer / lister / accéder au détail des images. Les images sont créées via l'API avant les annonces (en uploadant le fichier) et l'annonce reçoit la liste des
 images téléchargées lors de la création (c'est à ce moment là que le lien est fait entre annonce et image en base de données).
 
-## NotificationNotification
+## Notification
 
 Lorsqu'une annonce est créée, une notification par mail est envoyée à tous les AdminUser.
 La notification contient 3 boutons : un permettant d'envoyer sur la fiche de consultation dans l'admin, un second permettant de publier l'annonce et un troisième de

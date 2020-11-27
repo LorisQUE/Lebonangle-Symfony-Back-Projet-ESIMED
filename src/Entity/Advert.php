@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AdvertRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AdvertRepository::class)
@@ -19,11 +20,21 @@ class Advert
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Le titre doit avoir au moins {{ limit }} caractères.",
+     *      maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères.",
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *      max = 1200,
+     *      maxMessage = "Le contenu ne doit pas dépasser {{ limit }} caractères.",
+     * )
      */
     private $content;
 
@@ -45,6 +56,11 @@ class Advert
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 1000000,
+     *      notInRangeMessage = "Le prix doit être compris entre {{ min }}€ et {{ max }}€.",
+     * )
      */
     private $price;
 
@@ -174,5 +190,10 @@ class Advert
         $this->publishedAt = $publishedAt;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }
