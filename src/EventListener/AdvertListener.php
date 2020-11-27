@@ -4,11 +4,20 @@
 namespace App\EventListener;
 
 use App\Entity\Advert;
+use App\Notification\AdvertPublishingNotification;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Notifier\NotifierInterface;
 
 class AdvertListener
 {
+    private NotifierInterface $notifier;
+
+    public function __construct(NotifierInterface $notifier)
+    {
+        $this->notifier = $notifier;
+    }
+
     /**
      * @param LifecycleEventArgs $args
      */
@@ -30,6 +39,8 @@ class AdvertListener
         $entity = $args->getEntity();
         if($entity instanceof Advert && $entity->getState() === 'published' && $entity->getpublishedAt() === null){
             $entity->setPublishedAt(new \DateTimeImmutable());
+            $notification = new AdvertPublishingNotification();
+            $this->notifier->send($notification->setAdvert($entity), ...$this->notifier->getAdminRecipients());
         }
     }
 }
