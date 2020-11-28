@@ -20,20 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c72dac9f-0e21-4270-80f9-80b6c82c0118" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/lebonangle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lebonangle.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdvertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdvertController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdvertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdvertController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Advert.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Advert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AdvertType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AdvertType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Picture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Picture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/advert/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/advert/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +36,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -159,6 +159,12 @@
       <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
       <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
       <path value="$PROJECT_DIR$/vendor/symfony/workflow" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/lorenzo/pinky" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/twig/inky-extra" />
+      <path value="$PROJECT_DIR$/vendor/twig/cssinliner-extra" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kbnWgeW6Owe8k41MmiLElSFWtG" />
@@ -169,9 +175,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../guessbook2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -187,7 +194,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9e8fa817-45b1-4092-bf2e-242d5d3a7099" name="Default Changelist" comment="" />
+      <changelist id="c72dac9f-0e21-4270-80f9-80b6c82c0118" name="Default Changelist" comment="" />
       <created>1605978191605</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -197,6 +204,7 @@
       <workItem from="1606203988231" duration="24959000" />
       <workItem from="1606289966494" duration="15188000" />
       <workItem from="1606375173266" duration="15743000" />
+      <workItem from="1606584398763" duration="2286000" />
     </task>
     <servers />
   </component>
@@ -216,34 +224,34 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="122" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606127552686">
+    <state x="122" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606495009654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="122" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606127552686" />
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606398546750">
+    <state x="122" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606495009654" />
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606588046900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606398546750" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606394590467">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606588046900" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606481264748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606394590467" />
-    <state x="745" y="242" key="NewPhpClassDialog" timestamp="1606223149226">
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606481264748" />
+    <state x="745" y="242" key="NewPhpClassDialog" timestamp="1606499882607">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="745" y="242" key="NewPhpClassDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606223149226" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1606226468957">
+    <state x="745" y="242" key="NewPhpClassDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606499882607" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1606491181918">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606226468957" />
+    <state x="461" y="164" key="SettingsEditor/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606491181918" />
     <state x="1913" y="91" width="914" height="1103" key="dock-window-1" timestamp="1606392041146">
       <screen x="1920" y="-213" width="2560" height="1400" />
     </state>
     <state x="1913" y="91" width="914" height="1103" key="dock-window-1/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606392041146" />
-    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1606394323824">
+    <state x="262" y="0" width="1460" height="1040" key="find.popup" timestamp="1606479919806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="253" width="585" height="534" key="find.popup/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606394323824" />
+    <state x="262" y="0" width="1460" height="1040" key="find.popup/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606479919806" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1606299092751">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

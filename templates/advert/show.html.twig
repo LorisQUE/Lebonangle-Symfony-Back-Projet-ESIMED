@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce - Détails{% endblock %}
+
+{% block body %}
+    <br/>
+    <h1>Détails de l'annonce {{ advert.title }}</h1>
+    <hr>
+
+    <div style="display: flex; flex-direction: column; ">
+        <span>Titre : {{ advert.title }}</span>
+        <span>Auteur : {{ advert.author }}</span>
+        <span>E-Mail : <a href="mailto:{{ advert.email }}">{{ advert.email }}</a></span>
+        <span>Prix : {{ advert.price }}€</span>
+        <span>Créée le : {{ advert.createdAt |date("d/m/Y à H:i", "Europe/Paris") }}</span>
+        <span>Publiée le : {% if advert.publishedAt != null %} {{ advert.publishedAt |date("d/m/Y à H:i", "Europe/Paris") }}{% else %} Non publiée{% endif %}</span>
+        <span>Contenu : {{ advert.content }}</span>
+        <br/>
+        <br/>
+        <h3>Photos : </h3>
+        {% for picture in pictures %}
+            {{ picture }}
+        {% else %}
+            <span>Pas de photo disponible.</span>
+        {% endfor %}
+    </div>
+
+    <br/>
+
+    <a class="btn btn-secondary" href="{{ path('advert_index') }}">Retour</a>
+
+{% endblock %}

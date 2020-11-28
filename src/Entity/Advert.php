@@ -2,12 +2,23 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\AdvertRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
 
 /**
  * @ORM\Entity(repositoryClass=AdvertRepository::class)
+ * @ApiResource(
+ *     itemOperations={"get"},
+ *     collectionOperations={"get","post"}
+ * )
+ * @ApiFilter(OrderFilter::class, properties={"publishedAt", "price"})
+ * @ApiFilter(RangeFilter::class, properties={"price"})
  */
 class Advert
 {
@@ -51,6 +62,7 @@ class Advert
     /**
      * @ORM\ManyToOne(targetEntity=Category::class)
      * @ORM\JoinColumn(nullable=false)
+     * @ApiFilter(SearchFilter::class, properties={"category.id": "iexact"})
      */
     private $category;
 

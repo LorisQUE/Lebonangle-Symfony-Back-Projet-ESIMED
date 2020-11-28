@@ -38,6 +38,17 @@ class AdvertController extends AbstractController
     }
 
     /**
+     * @Route("/show/{id}", name="advert_show", methods={"GET"})
+     */
+    public function show(Advert $advert): Response
+    {
+        return $this->render('advert/show.html.twig', [
+            'advert' => $advert,
+            'pictures' => ["picture1", "picture2"],
+        ]);
+    }
+
+    /**
      * @Route("state/{id}/{transition}", name="advert_state", methods={"GET"})
      */
     public function changeState(Advert $advert, string $transition, WorkflowInterface $advertStateMachine, EntityManagerInterface $manager): Response

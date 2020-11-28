@@ -23,7 +23,7 @@
                 <p class="card-text">Nombre d'image : placeholder</p>
                 <p class="card-text">{{ advert.content }}</p>
                 <div style="margin-bottom: 5px;">
-                    <a class="btn btn-primary" href="#"><i class="fas fa-eye"></i></a>
+                    <a class="btn btn-primary" href="{{ path('advert_show', {'id': advert.id}) }}"><i class="fas fa-eye"></i></a>
                         {% if workflow_can(advert, 'publish') %}
                             <a title="Publier" href="{{ path('advert_state', {'transition': 'publish', 'id': advert.id}) }}" class="btn btn-success"><i class="fas fa-upload"></i></a>
                         {% endif %}
@@ -35,7 +35,7 @@
                         {% endif %}
                         <p class="card-text">État de l'annonce : {{ advert.state }}</p>
                 </div>
-                <p class="small">Publié {% if advert.publishedAt != null %}le {{ advert.publishedAt |date("d/m/Y H:i", "Europe/Paris") }}{% endif %} par {{ advert.author }} - <a href="mailto:{{ advert.email }}">{{ advert.email }}</a></p>
+                <p class="small">Publié {% if advert.publishedAt != null %}le {{ advert.publishedAt |date("d/m/Y à H:i", "Europe/Paris") }}{% endif %} par {{ advert.author }} - <a href="mailto:{{ advert.email }}">{{ advert.email }}</a></p>
             </div>
         </div>
 
