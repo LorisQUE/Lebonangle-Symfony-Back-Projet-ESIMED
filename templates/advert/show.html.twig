@@ -3,6 +3,10 @@
 {% block title %}Annonce - Détails{% endblock %}
 
 {% block body %}
+    <style>
+        .photo { max-width: 150px; max-height: 100px; margin-right: 5px; }
+    </style>
+
     <br/>
     <h1>Détails de l'annonce {{ advert.title }}</h1>
     <hr>
@@ -18,11 +22,13 @@
         <br/>
         <br/>
         <h3>Photos : </h3>
-        {% for picture in pictures %}
-            {{ picture }}
-        {% else %}
-            <span>Pas de photo disponible.</span>
-        {% endfor %}
+        <div style="display: flex">
+            {% for picture in pictures %}
+                <img class="photo" src="{{ vich_uploader_asset(picture, 'file') }}"/>
+            {% else %}
+                <span>Pas de photo disponible.</span>
+            {% endfor %}
+        </div>
     </div>
 
     <br/>

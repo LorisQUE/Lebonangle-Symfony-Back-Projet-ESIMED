@@ -37,7 +37,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  *                                     "file"={
  *                                         "type"="string",
  *                                         "format"="binary"
- *                                     }
+ *                                     },
+ *                                      "advert"={
+                                            "type":"int",
+ *                                          "format":"int"
+ *                                      }
  *                                 }
  *                             }
  *                         }
@@ -66,7 +70,7 @@ class Picture
     public $contentUrl;
 
     /**
-     *  @Assert\NotNull(groups={"picture_create"})
+     * @Assert\NotNull(groups={"picture_create"})
      * @Vich\UploadableField(mapping="picture",fileNameProperty="path")
      */
     private ?File $file = null;

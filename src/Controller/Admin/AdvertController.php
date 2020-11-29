@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Advert;
 use App\Repository\AdvertRepository;
+use App\Repository\PictureRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +20,11 @@ use Symfony\Component\Workflow\WorkflowInterface;
  */
 class AdvertController extends AbstractController
 {
+
+    public function __construct(){
+
+    }
+
     /**
      * @Route("/", name="advert_index")
      */
@@ -40,11 +46,11 @@ class AdvertController extends AbstractController
     /**
      * @Route("/show/{id}", name="advert_show", methods={"GET"})
      */
-    public function show(Advert $advert): Response
+    public function show(Advert $advert, PictureRepository $pictureRepository): Response
     {
         return $this->render('advert/show.html.twig', [
             'advert' => $advert,
-            'pictures' => ["picture1", "picture2"],
+            'pictures' => $pictureRepository->findBy(["advert"=>$advert]),
         ]);
     }
 
