@@ -19,8 +19,5 @@ framework:
                     from: draft
                     to:   published
                 reject:
-                    from: draft
-                    to:   rejected
-                remove:
-                    from: published
+                    from: [draft, published]
                     to:   rejected

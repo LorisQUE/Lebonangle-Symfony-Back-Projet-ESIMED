@@ -7,6 +7,7 @@ use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\AdvertRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\PictureRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +32,7 @@ class CategoryController extends AbstractController
     /**
      * @Route("show/{id}", name="category_show", methods={"GET"})
      */
-    public function show(Category $category, AdvertRepository $advertRepository, Request $request, PaginatorInterface $paginator): Response
+    public function show(Category $category, AdvertRepository $advertRepository, PictureRepository $pictureRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $donnees = $advertRepository->findBy(['category'=>$category->getId()]);
         $adverts = $paginator->paginate(
@@ -41,7 +42,7 @@ class CategoryController extends AbstractController
         );
         return $this->render('category/show.html.twig', [
             'category' => $category,
-            'adverts' => $adverts,
+            'adverts' => $adverts
         ]);
     }
 

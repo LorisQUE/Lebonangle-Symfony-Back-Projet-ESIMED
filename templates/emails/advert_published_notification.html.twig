@@ -4,7 +4,7 @@
     <h1>Bonjour {{ advert.author }}</h1>
     <p>
         Votre annonce {{ advert.title }} vient d'être publié par un administrateur !
-        Vous pouvez la voir en cliquant <a href="{{ url('advert_index') }}">ici</a>.
+        Vous pouvez la voir en cliquant <a href="{{ url('advert_show', {'id': advert.id}) }}">ici</a>.
     </p>
 {% endblock %}
 

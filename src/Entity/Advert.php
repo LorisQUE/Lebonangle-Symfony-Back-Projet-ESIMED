@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\AdvertRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
@@ -15,7 +16,8 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
  * @ORM\Entity(repositoryClass=AdvertRepository::class)
  * @ApiResource(
  *     itemOperations={"get"},
- *     collectionOperations={"get","post"}
+ *     collectionOperations={"get","post"},
+ *     denormalizationContext={"groups"={"write"}}
  * )
  * @ApiFilter(OrderFilter::class, properties={"publishedAt", "price"})
  * @ApiFilter(RangeFilter::class, properties={"price"})
@@ -37,6 +39,7 @@ class Advert
      *      minMessage = "Le titre doit avoir au moins {{ limit }} caractères.",
      *      maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères.",
      * )
+     * @Groups("write")
      */
     private $title;
 
@@ -46,23 +49,27 @@ class Advert
      *      max = 1200,
      *      maxMessage = "Le contenu ne doit pas dépasser {{ limit }} caractères.",
      * )
+     * @Groups("write")
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("write")
      */
     private $author;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("write")
      */
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class)
+     * @ORM\ManyToOne(targetEntity=Category::class, cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      * @ApiFilter(SearchFilter::class, properties={"category.id": "iexact"})
+     * @Groups("write")
      */
     private $category;
 
@@ -73,6 +80,7 @@ class Advert
      *      max = 1000000,
      *      notInRangeMessage = "Le prix doit être compris entre {{ min }}€ et {{ max }}€.",
      * )
+     * @Groups("write")
      */
     private $price;
 

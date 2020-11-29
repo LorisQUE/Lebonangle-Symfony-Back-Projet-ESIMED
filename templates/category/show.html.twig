@@ -30,9 +30,6 @@
                         {% if workflow_can(advert, 'reject') %}
                             <a title="Rejeter" href="{{ path('advert_state', {'transition': 'reject', 'id': advert.id}) }}" class="btn btn-danger"><i class="fas fa-ban"></i></a>
                         {% endif %}
-                        {% if workflow_can(advert, 'remove') %}
-                            <a title="Rejeter" href="{{ path('advert_state', {'transition': 'remove', 'id': advert.id}) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                        {% endif %}
                         <p class="card-text">État de l'annonce : {{ advert.state }}</p>
                 </div>
                 <p class="small">Publié {% if advert.publishedAt != null %}le {{ advert.publishedAt |date("d/m/Y à H:i", "Europe/Paris") }}{% endif %} par {{ advert.author }} - <a href="mailto:{{ advert.email }}">{{ advert.email }}</a></p>

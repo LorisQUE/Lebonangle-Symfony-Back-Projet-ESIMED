@@ -34,6 +34,7 @@ services:
     App\EventListener\AdvertListener:
         tags:
             - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: postPersist }
             - { name: doctrine.event_listener, event: preUpdate }
     App\EventListener\AdminUserListener:
         tags:

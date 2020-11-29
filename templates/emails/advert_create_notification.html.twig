@@ -1,0 +1,27 @@
+{% extends '@email/default/notification/body.html.twig' %}
+
+{% block content %}
+    <h1>Une annonce vient d'être créée !</h1>
+    <p>
+        L'annonce {{ advert.title }} ({{ advert.email }}) vient d'être créée par {{ advert.author}} maintenant ({{ advert.createdAt |date("d/m/Y à H:i", "Europe/Paris") }}) !
+        <br/>
+        Voici son contenu : <br/>
+        {{ advert.content }}
+
+        <br/>
+
+        Vous pouvez voir l'annonce <a href="{{ url('advert_show', {'id': advert.id}) }}">ici</a>.
+
+        <br/>
+        <hr>
+
+        {% if workflow_can(advert, 'publish') %}
+        <button href="{{ url('advert_state', {'transition': 'publish', 'id': advert.id}) }}">Publier</button>
+        {% endif %}{% if workflow_can(advert, 'reject') %}
+        <button href="{{ url('advert_state', {'transition': 'reject', 'id': advert.id}) }}">Rejeter</button>
+        {% endif %}
+    </p>
+{% endblock %}
+
+{% block action %}
+{% endblock %}
