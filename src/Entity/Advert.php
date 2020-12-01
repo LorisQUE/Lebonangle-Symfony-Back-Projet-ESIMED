@@ -11,12 +11,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
+use App\Controller\Api\GetAdvertsPublished;
 
 /**
  * @ORM\Entity(repositoryClass=AdvertRepository::class)
  * @ApiResource(
  *     itemOperations={"get"},
- *     collectionOperations={"get","post"},
+ *     collectionOperations={"get"={"controller"=GetAdvertsPublished::class},"post"},
  *     denormalizationContext={"groups"={"write"}}
  * )
  * @ApiFilter(OrderFilter::class, properties={"publishedAt", "price"})

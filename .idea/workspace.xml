@@ -21,12 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c72dac9f-0e21-4270-80f9-80b6c82c0118" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdvertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdvertController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CreatePictureAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/CreatePictureAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Advert.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Advert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Picture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Picture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/advert/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/advert/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +173,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/emails" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
@@ -183,9 +181,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\lebonangle\templates\emails" />
+      <recent name="C:\wamp64\www\lebonangle\src\Notification" />
       <recent name="C:\wamp64\www\lebonangle\templates\admin_user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\lebonangle\src\Controller\Api" />
       <recent name="C:\wamp64\www\lebonangle\templates\admin_user" />
       <recent name="C:\wamp64\www\lebonangle\src\Controller\Admin" />
       <recent name="C:\wamp64\www\lebonangle\src\Controller" />
@@ -205,6 +206,8 @@
       <workItem from="1606289966494" duration="15188000" />
       <workItem from="1606375173266" duration="15743000" />
       <workItem from="1606584398763" duration="2286000" />
+      <workItem from="1606635225724" duration="12659000" />
+      <workItem from="1606826142437" duration="448000" />
     </task>
     <servers />
   </component>
@@ -236,10 +239,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606481264748" />
-    <state x="745" y="242" key="NewPhpClassDialog" timestamp="1606499882607">
+    <state x="745" y="242" key="NewPhpClassDialog" timestamp="1606826334465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="745" y="242" key="NewPhpClassDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606499882607" />
+    <state x="745" y="242" key="NewPhpClassDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606826334465" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1606491181918">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -256,5 +259,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606299092751" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1606656884872">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" key="search.everywhere.popup/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606656884872" />
   </component>
 </project>
