@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PictureRepository;
@@ -12,6 +13,8 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+
 
 /**
  * @ApiResource(
@@ -89,6 +92,8 @@ class Picture
      * @ORM\ManyToOne(targetEntity=Advert::class, cascade={"remove"})
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotNull(groups={"picture_create"})
+     * @ApiFilter(SearchFilter::class, properties={"advert.id": "iexact"})
+     * @Groups("read")
      */
     private Advert $advert;
 
