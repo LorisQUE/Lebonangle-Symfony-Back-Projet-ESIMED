@@ -20,11 +20,6 @@ use Symfony\Component\Workflow\WorkflowInterface;
  */
 class AdvertController extends AbstractController
 {
-
-    public function __construct(){
-
-    }
-
     /**
      * @Route("/", name="advert_index")
      */
