@@ -24,19 +24,19 @@ final class CreatePictureAction
     {
         $uploadedFile = $request->files->get('file');
         $advertId = (int)$request->get('advert');
-        $advert =  $this->manager->getRepository(Advert::class)->find($advertId);
 
         if (!$uploadedFile) {
             throw new BadRequestHttpException('"file" is required');
         }
-        if (!$advert) {
-            throw new BadRequestHttpException('"advert" is required');
-        }
 
         $picture = new Picture();
         $picture->setFile($uploadedFile) ;
-        $picture->setAdvert($advert) ;
         $picture->setCreatedAt(new \DateTimeImmutable());
+
+        /*if($advertId !== null){
+            $advert =  $this->manager->getRepository(Advert::class)->find($advertId);
+            $picture->setAdvert($advert) ;
+        }*/
 
         return $picture;
     }

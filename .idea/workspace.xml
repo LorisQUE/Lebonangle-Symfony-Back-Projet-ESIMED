@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c72dac9f-0e21-4270-80f9-80b6c82c0118" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdvertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdvertController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/CreatePictureAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/CreatePictureAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Picture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Picture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/AdvertListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/AdvertListener.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +174,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/emails" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Porte-Document/Cours/Git/trainingGIT" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
@@ -207,7 +210,8 @@
       <workItem from="1606635225724" duration="12659000" />
       <workItem from="1606826142437" duration="4208000" />
       <workItem from="1606895955997" duration="195000" />
-      <workItem from="1606918859282" duration="711000" />
+      <workItem from="1606918859282" duration="1645000" />
+      <workItem from="1606995027538" duration="9044000" />
     </task>
     <servers />
   </component>
@@ -235,10 +239,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606588046900" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606481264748">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607005594446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1606481264748" />
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.-213.2560.1400/0.0.1920.1040@0.0.1920.1040" timestamp="1607005594446" />
     <state x="745" y="242" key="NewPhpClassDialog" timestamp="1606826334465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

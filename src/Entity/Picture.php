@@ -90,12 +90,11 @@ class Picture
 
     /**
      * @ORM\ManyToOne(targetEntity=Advert::class, cascade={"remove"})
-     * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull(groups={"picture_create"})
+     * @ORM\JoinColumn(nullable=true)
      * @ApiFilter(SearchFilter::class, properties={"advert.id": "iexact"})
      * @Groups("read")
      */
-    private Advert $advert;
+    private ?Advert $advert = null;
 
     public function getId(): ?int
     {
